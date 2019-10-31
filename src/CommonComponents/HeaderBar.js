@@ -1,6 +1,6 @@
 import React from "react";
 import { Layout, Row, Col, Avatar, Input, Icon } from "antd";
-import "./HeaderBar.css";
+import "./HeaderBar.less";
 
 import hushLogo from "../assets/images/hush_logo.png";
 import hushBrand from "../assets/images/hush_brand.png";

@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import HeaderBar from './CommonComponents/HeaderBar';
 
-import "antd/dist/antd.css";
+import "antd/dist/antd.less";
 
 ReactDOM.render(<HeaderBar />, document.getElementById('root'));
 
