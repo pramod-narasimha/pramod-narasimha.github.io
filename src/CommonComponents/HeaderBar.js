@@ -1,9 +1,7 @@
 import React from "react";
 import { Layout, Row, Col, Avatar, Input, Icon } from "antd";
+import MediaQuery from "react-responsive";
 import "./HeaderBar.less";
-
-import hushLogo from "../assets/images/hush_logo.png";
-import hushBrand from "../assets/images/hush_brand.png";
 import userProfile from "../assets/images/user_profile.png";
 import Post from "./Scenes/Post/Post";
 import HushLogo from "../assets/SVGs/HushLogo";
@@ -37,7 +35,7 @@ class HeaderBar extends React.Component {
           </Header>
           <Layout>
             <Content>
-              <Col span={6}>Filter</Col>
+              <Col span={6}><MediaQuery query= {"(min-width: 1224px)"}>Filter</MediaQuery></Col>
               <Col span={12}>
                 <Post />
               </Col>
