@@ -1,75 +1,105 @@
 import React from "react";
 import { Card, Divider, Avatar, Col, Icon, Row, Tag, Button } from "antd";
-import { Flex } from "antd-mobile";
-import { postedTime } from "./Components/PostedTime";
+import { postedTime } from "./Components/PostedTime/PostedTime";
 import userProfile from "../../assets/images/user_profile.png";
 import QuestionsAskedFor from "./Components/QuestionAskedFor/QuestionsAskedFor";
-const { Meta } = Card;
+import Helpfull from "../../assets/SVGs/Helpfull";
+import AnswerIcon from "../../assets/SVGs/AnswerIcon";
+import FacebookGrey from "../../assets/SVGs/FacebookGrey";
+import TwitterIcon from "../../assets/SVGs/TwitterIcon";
+import ShareIcon from "../../assets/SVGs/ShareIcon";
+import MoreIcon from "../../assets/SVGs/MoreIcon";
+import "./Post.less";
+import LikeCount from "../../assets/SVGs/LikeCount";
+import HeartCount from "../../assets/SVGs/HeartCount";
+import ClapCount from "../../assets/SVGs/ClapCount";
+import QuestionAndDescription from "./Components/QuestionAndDescription/QuestionAndDescription";
 
 class Post extends React.Component {
   render() {
     return (
       <div style={{ display: "flex", justifyContent: "center" }}>
-        <Card style={{ minWidth: "564px", maxWidth: "100%" }}>
-          <div>
-            <Row>
-              <Col span={24}>
-                <QuestionsAskedFor />
-              </Col>
-            </Row>
-            <Row>
+        <Card style={{ width: "564px" }}>
+          <QuestionsAskedFor />
+          <Row justify="start">
+            <Col span={12}>
               <Col span={12}>
-                <Card size={"small"} bordered={false}>
-                  <Meta
-                    avatar={<Avatar src={userProfile} />}
-                    title="How can I help"
-                    description="This is the description"
-                  />
-                </Card>
+                <img height="40" width="40" src={userProfile} alt="" />
               </Col>
               <Col span={12}>
-                <div>{postedTime()}</div>
+                <Row>
+                  <Col span={24}>
+                    <span>Keratin</span>
+                  </Col>
+                </Row>
+                <Row>
+                  <Col span={24}>
+                    <span>Intel</span>
+                  </Col>
+                </Row>
               </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <Card size={"small"} bordered={false}>
-                  <Meta
-                    title="How can I help my unhappy coworker?"
-                    description="I’ve gotten really close with a colleague who started at my company about four months ago. She is really unhappy and is thinking about leaving already. What can I do to help?"
-                  />
-                </Card>
+            </Col>
+            <Col span={12}>
+              <div>{postedTime()}</div>
+            </Col>
+          </Row>
+          <QuestionAndDescription />
+          <Row>
+            <Col span={4}>
+              <span>
+                <span>
+                  <Icon component={Helpfull} />
+                </span>
+                <span className="helpfull font-size-12 pl1">Helpfull</span>
+              </span>
+            </Col>
+            <Col span={4}>
+              <span>
+                <span>
+                  <Icon component={AnswerIcon} />
+                </span>
+                <span className="answer font-size-12 pl1">Answer</span>
+              </span>
+            </Col>
+            <Col span={8} offset={8}>
+              <Col span={6}>
+                <Icon component={FacebookGrey} />
               </Col>
-            </Row>
-            <div>
-              <Row>
-                <Col style={{ background: "red" }} span={4}>
-                  Answer
-                </Col>
-                <Col style={{ background: "red" }} span={4}>
-                  Helpful
-                </Col>
-                <Col style={{ background: "red" }} span={8} offset={8}>
-                  <Col style={{ background: "red" }} span={8}>
-                    Facebook
-                  </Col>
-                  <Col style={{ background: "red" }} span={8}>
-                    Twitter
-                  </Col>
-                  <Col style={{ background: "red" }} span={8}>
-                    Share
-                  </Col>
-                </Col>
-              </Row>
+              <Col span={6}>
+                <Icon component={TwitterIcon} />
+              </Col>
+              <Col span={6}>
+                <Icon component={ShareIcon} />
+              </Col>
+              <Col span={6}>
+                <Icon component={MoreIcon} />
+              </Col>
+            </Col>
+          </Row>
 
-              <Divider />
-              <Row>
-                <Col span={24}>
-                  <Tag color="blue">#Product/UX</Tag>
-                </Col>
-              </Row>
-            </div>
-          </div>
+          <Divider />
+          <Row>
+            <Col span={8}>
+              <Tag color="blue">#Product/UX</Tag>
+            </Col>
+            <Col span={8} offset={8}>
+              <Col span={6}>
+                <Icon component={LikeCount} />
+              </Col>
+              <Col span={6}>
+                <Icon component={HeartCount} />
+              </Col>
+              <Col span={6}>
+                <Icon component={ClapCount} />
+              </Col>
+              <Col span={6}>
+                <span>
+                  <span>2</span>
+                  <span>answers</span>
+                </span>
+              </Col>
+            </Col>
+          </Row>
         </Card>
       </div>
     );

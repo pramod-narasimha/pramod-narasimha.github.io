@@ -1,6 +1,6 @@
 import React from "react";
 
-const AnswerIcon = () => (
+const FacebookGrey = () => (
   <svg
     width="18px"
     height="18px"

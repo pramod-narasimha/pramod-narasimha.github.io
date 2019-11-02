@@ -35,11 +35,11 @@ class HeaderBar extends React.Component {
           </Header>
           <Layout>
             <Content>
-              <Col span={6}><MediaQuery query= {"(min-width: 1224px)"}>Filter</MediaQuery></Col>
-              <Col span={12}>
+              <Col span={4}><MediaQuery query= {"(min-width: 1224px)"}>Filter</MediaQuery></Col>
+              <Col span={16}>
                 <Post />
               </Col>
-              <Col span={6}>Ask New Question</Col>
+              <Col span={4}>Ask New Question</Col>
             </Content>
           </Layout>
           <Footer></Footer>
