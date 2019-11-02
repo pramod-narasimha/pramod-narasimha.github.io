@@ -2,13 +2,13 @@ import React from "react";
 import { Layout, Row, Col, Avatar, Input, Icon } from "antd";
 import MediaQuery from "react-responsive";
 import "./CommonComponents/HeaderBar/HeaderBar.less";
-import HushLogo from "./assets/SVGs/HushLogo";
+import HushLogo from "../assets/SVGs/HushLogo";
 import GlobalErrorBoundary from "./CommonComponents/ErrorBoundary/GlobalErrorHandler";
 import HeaderBar from "./CommonComponents/HeaderBar/HeaderBar";
 import MultiplePosts from "./Scenes/MultiplePosts/MultiplePost";
 import SinglePost from "./Scenes/SinglePost/SinglePost";
 
-import './utils/utilities.less'
+import '../utils/utilities.less'
 
 class App extends React.Component {
   constructor(props) {

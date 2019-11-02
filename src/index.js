@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { HashRouter } from "react-router-dom";
 
 import './index.css';
-import App from './App';
+import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
-import HeaderBar from './CommonComponents/HeaderBar/HeaderBar';
+import HeaderBar from './Components/CommonComponents/HeaderBar/HeaderBar';
 
 import "antd/dist/antd.less";
 import Routes from './Routes';

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "./QuestionsAskedFor.less";
 import { Row, Col, Icon } from "antd";
-import CompanyIcon from "../../../../assets/SVGs/CompanyIcon";
+import CompanyIcon from "../../../../../assets/SVGs/CompanyIcon";
 
 class QuestionsAskedFor extends React.Component {
   render() {

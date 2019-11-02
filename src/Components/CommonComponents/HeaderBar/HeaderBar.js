@@ -2,9 +2,9 @@ import React from "react";
 import { Layout, Row, Col, Avatar, Input, Icon } from "antd";
 import MediaQuery from "react-responsive";
 import "./HeaderBar.less";
-import userProfile from "../../assets/images/user_profile.png";
+import userProfile from "../../../assets/images/user_profile.png";
 import Post from "../../Scenes/Post/Post";
-import HushLogo from "../../assets/SVGs/HushLogo";
+import HushLogo from "../../../assets/SVGs/HushLogo";
 
 const { Header, Footer, Sider, Content } = Layout;
 

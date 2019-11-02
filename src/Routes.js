@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import App from "./App";
+import App from "./Components/App";
 // import HeaderBar from "./CommonComponents/HeaderBar";
 // import LoginForm from "./components/Scenes/Login/Scenes/LoginForm/LoginForm";
 // import ResetPassword from "./components/Scenes/Login/Scenes/ResetPassword/Components/ResetPassword";
