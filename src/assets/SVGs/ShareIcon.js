@@ -14,15 +14,15 @@ const ShareIcon = () => (
     <g
       id="Page-1"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     >
       <g
         id="Feed---Qn"
         transform="translate(-892.000000, -277.000000)"
         fill="#8294A5"
-        fill-rule="nonzero"
+        fillRule="nonzero"
       >
         <g id="QuestiononFeed-1" transform="translate(406.000000, 66.000000)">
           <g id="QAAction" transform="translate(16.000000, 207.000000)">

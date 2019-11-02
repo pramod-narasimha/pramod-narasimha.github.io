@@ -1,10 +1,11 @@
 import React from "react";
-import { Layout, Row, Col, Avatar, Input, Icon } from "antd";
+import { Layout, Row, Col, Avatar, Input, Icon, Button } from "antd";
 import MediaQuery from "react-responsive";
 import "./HeaderBar.less";
 import userProfile from "../../../assets/images/user_profile.png";
 import Post from "../../Scenes/Post/Post";
 import HushLogo from "../../../assets/SVGs/HushLogo";
+import HamburgerIcon from "../../../assets/SVGs/HamburgerIcon";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -23,7 +24,8 @@ class HeaderBar extends React.Component {
               <Col span={12}>
                 <Input
                   placeholder="Search Hush"
-                  prefix={<Icon type="search" />}
+                  // prefix={<Icon component={HamburgerIcon} />}
+                  prefix={<Icon type="search"/>}
                 />
               </Col>
               <Col span={6}>
@@ -33,7 +35,7 @@ class HeaderBar extends React.Component {
               </Col>
             </Row>
           </Header>
-          <Layout>
+          {/* <Layout>
             <Content>
               <Col span={4}><MediaQuery query= {"(min-width: 1224px)"}>Filter</MediaQuery></Col>
               <Col span={16}>
@@ -42,7 +44,7 @@ class HeaderBar extends React.Component {
               <Col span={4}>Ask New Question</Col>
             </Content>
           </Layout>
-          <Footer></Footer>
+          <Footer></Footer> */}
         </Layout>
       </div>
     );

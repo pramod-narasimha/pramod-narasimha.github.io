@@ -14,14 +14,14 @@ const LinkedInShare = () => (
     <g
       id="Page-1"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     >
       <g
         id="answer-page"
         transform="translate(-348.000000, -268.000000)"
-        fill-rule="nonzero"
+        fillRule="nonzero"
       >
         <g id="share" transform="translate(346.000000, 168.000000)">
           <g id="LinkedIn-Share" transform="translate(2.000000, 100.000000)">

@@ -14,14 +14,14 @@ const Helpfull = () => (
     <g
       id="Page-1"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     >
       <g
         id="Feed---Qn"
         transform="translate(-430.000000, -276.000000)"
-        fill-rule="nonzero"
+        fillRule="nonzero"
       >
         <g id="QuestiononFeed-1" transform="translate(406.000000, 66.000000)">
           <g id="QAAction" transform="translate(16.000000, 207.000000)">

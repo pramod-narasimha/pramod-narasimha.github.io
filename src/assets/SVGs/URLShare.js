@@ -14,14 +14,14 @@ const URLShare = () => (
     <g
       id="Page-1"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     >
       <g
         id="answer-page"
         transform="translate(-348.000000, -308.000000)"
-        fill-rule="nonzero"
+        fillRule="nonzero"
       >
         <g id="share" transform="translate(346.000000, 168.000000)">
           <g id="URL-Share" transform="translate(2.000000, 140.000000)">

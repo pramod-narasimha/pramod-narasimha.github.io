@@ -14,15 +14,15 @@ const VerifiedIcon = () => (
     <g
       id="Page-1"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     >
       <g
         id="Feed---Qn"
         transform="translate(-525.000000, -113.000000)"
         fill="#006AFF"
-        fill-rule="nonzero"
+        fillRule="nonzero"
       >
         <g id="QuestiononFeed-1" transform="translate(406.000000, 66.000000)">
           <g id="profile" transform="translate(16.000000, 44.000000)">

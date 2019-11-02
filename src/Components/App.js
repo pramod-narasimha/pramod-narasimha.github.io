@@ -1,8 +1,6 @@
 import React from "react";
-import { Layout, Row, Col, Avatar, Input, Icon } from "antd";
-import MediaQuery from "react-responsive";
+import { Layout } from "antd";
 import "./CommonComponents/HeaderBar/HeaderBar.less";
-import HushLogo from "../assets/SVGs/HushLogo";
 import GlobalErrorBoundary from "./CommonComponents/ErrorBoundary/GlobalErrorHandler";
 import HeaderBar from "./CommonComponents/HeaderBar/HeaderBar";
 import MultiplePosts from "./Scenes/MultiplePosts/MultiplePost";
@@ -22,20 +20,23 @@ class App extends React.Component {
         return <MultiplePosts/>
       case 2:
         return <SinglePost/>
+      default: 
+        return "";
     }
   }
 
   render() {
-    var selectedPath = "2";
+    var selectedPath = 2;
 
     switch (this.props.location.pathname) {
       case "/":
-        selectedPath = "1";
+        selectedPath = 1;
+        break;
       case "/posts":
-        selectedPath = "1";
+        selectedPath = 1;
         break;
       default:
-        selectedPath = "2";
+        selectedPath = 2;
     }
 
     return (

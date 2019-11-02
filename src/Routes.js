@@ -18,7 +18,7 @@ const Routes = () => (
     <Route exact path="/resetbyemail" component={ResetByEmail} /> */}
     <Route exact path="/" component={App} />
     <Route exact path="/posts" component={App} />
-    <Route exact path="/post/:url" component={App} />
+    <Route exact path="/posts/:id" component={App} />
   </Switch>
 );
 

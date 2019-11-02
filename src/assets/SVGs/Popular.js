@@ -14,15 +14,15 @@ const Popular = () => (
     <g
       id="Page-1"
       stroke="none"
-      stroke-width="1"
+      strokeWidth="1"
       fill="none"
-      fill-rule="evenodd"
+      fillRule="evenodd"
     >
       <g
         id="Feed---Qn"
         transform="translate(-199.000000, -122.000000)"
         fill="#E4421C"
-        fill-rule="nonzero"
+        fillRule="nonzero"
       >
         <g id="LeftNavigation" transform="translate(190.000000, 66.000000)">
           <g id="FeedGrp">

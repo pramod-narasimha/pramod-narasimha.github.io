@@ -1,25 +1,30 @@
-import React from 'react';
+import React from "react";
 import MediaQuery from "react-responsive";
 import { Layout, Col } from "antd";
-import Post from '../Post/Post';
+import Post from "../Post/Post";
+import AskUs from "../../CommonComponents/AskUsSection/AskUs";
+import FilterWebView from "../../CommonComponents/FilterSection/WebView/FilterWebView";
 
-const {  Content } = Layout;
-
+const { Content } = Layout;
 
 class MultiplePosts extends React.Component {
-
-    render(){
-        return(
-            <Content>
-              <Col span={6}><MediaQuery query= {"(min-width: 1224px)"}>Filter</MediaQuery></Col>
-              <Col span={12}>
-                <Post />
-              </Col>
-              <Col span={6}>Ask New Question</Col>
-            </Content>
-        );
-    }
-
+  render() {
+    return (
+      <Content>
+        <Col span={6}>
+          <MediaQuery query={"(min-width: 1224px)"}>
+            <FilterWebView />
+          </MediaQuery>
+        </Col>
+        <Col span={12}>
+          <Post />
+        </Col>
+        <Col span={6}>
+          <AskUs />
+        </Col>
+      </Content>
+    );
+  }
 }
 
 export default MultiplePosts;
