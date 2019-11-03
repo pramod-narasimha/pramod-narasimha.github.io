@@ -16,6 +16,13 @@ export function setLoading(data) {
   };
 }
 
+export function setSideDrawer(data){
+  return {
+    type: "SET_DRAWER",
+    payload: data
+  }
+
+}
 export const fetchApiData = () => dispatch => {
   dispatch(setLoading(true));
   axios.get(devApi).then(response => {
@@ -23,3 +30,11 @@ export const fetchApiData = () => dispatch => {
     dispatch(setLoading(false));
   });
 };
+
+export const openSideDrawer = () => dispatch => {
+  dispatch(setSideDrawer("open"));
+}
+
+export const closeSideDrawer = () => dispatch => {
+  dispatch(setSideDrawer("close"));
+}

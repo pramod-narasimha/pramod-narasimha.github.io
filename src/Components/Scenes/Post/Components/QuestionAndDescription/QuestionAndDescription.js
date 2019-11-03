@@ -23,9 +23,9 @@ class QuestionAndDescription extends React.Component {
                 <span>
                   {this.props.metaDescription}
                   {this.props.metaDescription !== this.props.description && (
-                    <Button onClick={() => this.setState({ visible: true })}>
+                    <span style={{color:"blue"}} onClick={() => this.setState({ visible: true })}>
                       See More
-                    </Button>
+                    </span>
                   )}
                 </span>
               )}

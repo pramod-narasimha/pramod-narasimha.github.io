@@ -1,6 +1,7 @@
 const defaultState = {
   isLoading: true,
-  postsList: []
+  postsList: [],
+  sideDrawer: "close"
 };
 
 const FetchApiDataReducer = function(state = defaultState, action) {
@@ -17,9 +18,11 @@ const FetchApiDataReducer = function(state = defaultState, action) {
     case "SET_LOGGED_IN_STATUS":
       return updateState({ isLoggedIn: payload });
     case "IS_LOADING":
-        return updateState({isLoading: payload});
+      return updateState({ isLoading: payload });
     case "SET_API_DATA":
-            return updateState({postsList: payload});  
+      return updateState({ postsList: payload });
+    case "SET_DRAWER":
+      return updateState({ sideDrawer: payload });
     default:
       return state;
   }

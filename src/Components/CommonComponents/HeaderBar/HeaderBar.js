@@ -1,11 +1,10 @@
 import React from "react";
-import { Layout, Row, Col, Avatar, Input, Icon, Button } from "antd";
+import { Layout } from "antd";
 import MediaQuery from "react-responsive";
-import "./HeaderBar.less";
-import userProfile from "../../../assets/images/user_profile.png";
-import Post from "../../Scenes/Post/Post";
-import HushLogo from "../../../assets/SVGs/HushLogo";
-import HamburgerIcon from "../../../assets/SVGs/HamburgerIcon";
+
+import WebViewHeaderBar from "./WebViewHeaderBar/WebViewHeaderBar";
+import MobileViewHeaderBar from "./MobileViewHeaderBar/MobileViewHeaderBar";
+import FilterMobileView from "../FilterSection/MobileView/FilterMobileView";
 
 const { Header, Footer, Sider, Content } = Layout;
 
@@ -14,37 +13,13 @@ class HeaderBar extends React.Component {
     return (
       <div>
         <Layout>
-          <Header>
-            <Row>
-              <Col span={6}>
-                <div className="companyImage">
-                    <Icon component={HushLogo}/>
-                </div>
-              </Col>
-              <Col span={12}>
-                <Input
-                  placeholder="Search Hush"
-                  // prefix={<Icon component={HamburgerIcon} />}
-                  prefix={<Icon type="search"/>}
-                />
-              </Col>
-              <Col span={6}>
-                <div className="profileImage">
-                  <Avatar src={userProfile} />
-                </div>
-              </Col>
-            </Row>
-          </Header>
-          {/* <Layout>
-            <Content>
-              <Col span={4}><MediaQuery query= {"(min-width: 1224px)"}>Filter</MediaQuery></Col>
-              <Col span={16}>
-                <Post />
-              </Col>
-              <Col span={4}>Ask New Question</Col>
-            </Content>
-          </Layout>
-          <Footer></Footer> */}
+        <MediaQuery query={"(min-width: 1061px)"}>
+          <WebViewHeaderBar/>
+          </MediaQuery>
+          <MediaQuery query={"(max-width: 1060px)"}>
+          <MobileViewHeaderBar/>
+          <FilterMobileView/>
+          </MediaQuery>
         </Layout>
       </div>
     );

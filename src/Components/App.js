@@ -1,7 +1,6 @@
 import React from "react";
 import { Layout } from "antd";
 import { Route, Switch } from "react-router-dom";
-import "./CommonComponents/HeaderBar/HeaderBar.less";
 import GlobalErrorBoundary from "./CommonComponents/ErrorBoundary/GlobalErrorHandler";
 import HeaderBar from "./CommonComponents/HeaderBar/HeaderBar";
 import MultiplePosts from "./Scenes/MultiplePosts/MultiplePost";

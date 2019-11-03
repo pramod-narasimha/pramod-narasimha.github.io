@@ -1,15 +1,22 @@
 import React from "react";
 
 import "./FilterMobileView.less";
+import { connect } from "react-redux";
 import { Icon, Col, Drawer, Row } from "antd";
 import Popular from "../../../../assets/SVGs/Popular";
 import HomeIcon from "../../../../assets/SVGs/HomeIcon";
+import { closeSideDrawer } from "../../../../actions/FetchApiDataActions";
 
 class FilterMobileView extends React.Component {
   render() {
     return (
       <div>
-        <Drawer placement={"left"} closable={false} visible={true}>
+        <Drawer
+          placement={"left"}
+          closable={false}
+          visible={this.props.sideDrawer === "open" ? true : false}
+          onClose={()=>this.props.closeSideDrawer()}
+        >
           <Row>
             <Col span={24}>
               <span className="hush-feed">Hush Feed</span>
@@ -37,4 +44,18 @@ class FilterMobileView extends React.Component {
   }
 }
 
-export default FilterMobileView;
+const mapStateToProps = statef => {
+  console.log(statef)
+  return {
+    sideDrawer: statef.apiData.sideDrawer
+  };
+};
+
+const mapDispatchToProps = dispatch => ({
+  closeSideDrawer: () => dispatch(closeSideDrawer())
+});
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FilterMobileView);

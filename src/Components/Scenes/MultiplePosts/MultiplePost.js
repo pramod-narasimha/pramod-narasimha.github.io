@@ -8,6 +8,12 @@ import AskUs from "../../CommonComponents/AskUsSection/AskUs";
 import FilterWebView from "../../CommonComponents/FilterSection/WebView/FilterWebView";
 import GlobalErrorBoundary from "../../CommonComponents/ErrorBoundary/GlobalErrorHandler";
 import { fetchApiData } from "../../../actions/FetchApiDataActions";
+import {
+  FlexBoxContainer,
+  FilterColumnSection,
+  PostColumnSection,
+  AskUsColumnSection
+} from "./styles";
 
 const { Content } = Layout;
 
@@ -19,24 +25,36 @@ class MultiplePosts extends React.Component {
     return (
       <GlobalErrorBoundary>
         <Content>
-          <Col span={6}>
-            <MediaQuery query={"(min-width: 1224px)"}>
-              <FilterWebView />
+          <FlexBoxContainer>
+            <MediaQuery query={"(min-width: 1061px)"}>
+              <FilterColumnSection>
+                <FilterWebView />
+              </FilterColumnSection>
             </MediaQuery>
-          </Col>
-          <Col span={12}>
-            {!this.props.isLoading && this.props.postsList.length>0 &&
-              this.props.postsList.map(post => (
-                <Row key={post.id}>
+            <PostColumnSection>
+              {!this.props.isLoading &&
+                this.props.postsList.length > 0 &&
+                this.props.postsList.map(post => (
+                  <Row key={post.id}>
+                    <Col span={24}>
+                      <Post postData={post} />
+                    </Col>
+                  </Row>
+                ))}
+              {this.props.isLoading && (
+                <Row>
                   <Col span={24}>
-                    <Post postData={post} />
+                    <Post />
                   </Col>
                 </Row>
-              ))}
-          </Col>
-          <Col span={6}>
-            <AskUs />
-          </Col>
+              )}
+            </PostColumnSection>
+            <MediaQuery query={"(min-width: 1061px)"}>
+              <AskUsColumnSection>
+                <AskUs />
+              </AskUsColumnSection>
+            </MediaQuery>
+          </FlexBoxContainer>
         </Content>
       </GlobalErrorBoundary>
     );
