@@ -1,4 +1,6 @@
 import axios from "axios";
+const devApi = "http://localhost:3000/apiResponse.json";
+const prodApi = "https://pramod-narasimha.github.io/apiResponse.json"
 
 export function setApiData(data) {
   return {
@@ -16,7 +18,7 @@ export function setLoading(data) {
 
 export const fetchApiData = () => dispatch => {
   dispatch(setLoading(true));
-  axios.get("http://localhost:3000/apiResponse.json").then(response => {
+  axios.get(devApi).then(response => {
     dispatch(setApiData(response.data.aData));
     dispatch(setLoading(false));
   });
