@@ -1,31 +1,40 @@
-import React from 'react'
-import { Row, Col } from 'antd';
+import React from "react";
+import { Row, Col, Button } from "antd";
 
-class QuestionAndDescription extends React.Component{
+class QuestionAndDescription extends React.Component {
+  state = {
+    visible: false
+  };
 
-    render(){
-        return( <Row>
+  render() {
+    return (
+      <Row>
+        <Col span={24}>
+          <Row>
             <Col span={24}>
-              <Row>
-                <Col span={24}>
-                  <span className="font-size-18 bold">
-                    How can I help my unhappy coworker?
-                  </span>
-                </Col>
-              </Row>
-              <Row>
-                <Col span={24}>
-                  <span>
-                    I’ve gotten really close with a colleague who started at my
-                    company about four months ago. She is really unhappy and is
-                    thinking about leaving already. What can I do to help?
-                  </span>
-                </Col>
-              </Row>
+              <span className="font-size-18 bold">{this.props.title}</span>
             </Col>
-          </Row>);
-    }
-
+          </Row>
+          <Row>
+            <Col span={24}>
+              {this.state.visible ? (
+                <span>{this.props.description}</span>
+              ) : (
+                <span>
+                  {this.props.metaDescription}
+                  {this.props.metaDescription !== this.props.description && (
+                    <Button onClick={() => this.setState({ visible: true })}>
+                      See More
+                    </Button>
+                  )}
+                </span>
+              )}
+            </Col>
+          </Row>
+        </Col>
+      </Row>
+    );
+  }
 }
 
 export default QuestionAndDescription;

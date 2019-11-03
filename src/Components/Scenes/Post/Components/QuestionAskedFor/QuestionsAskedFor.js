@@ -13,7 +13,7 @@ class QuestionsAskedFor extends React.Component {
             <Icon component={CompanyIcon} />
           </span>
           <span className="questions-for">Questions for </span>
-          <span className="companyName"> {"Microsoft"}</span>
+          <span className="companyName">{this.props.companies}</span>
         </Col>
       </Row>
     );
