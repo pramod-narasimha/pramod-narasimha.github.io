@@ -4,21 +4,23 @@ import { withRouter } from "react-router-dom";
 import MediaQuery from "react-responsive";
 import { Layout, Col, Row } from "antd";
 import Post from "../Post/Post";
-import FilterWebView from "../../CommonComponents/FilterSection/WebView/FilterWebView";
 import AskUs from "../../CommonComponents/AskUsSection/AskUs";
-import MultiTags from "../MultiTags/MultiTags";
-import AddComment from "../AddComment/AddComment";
-import FilterMobileView from "../../CommonComponents/FilterSection/MobileView/FilterMobileView";
-import { fetchApiData } from "../../../actions/FetchApiDataActions";
+import FilterWebView from "../../CommonComponents/FilterSection/WebView/FilterWebView";
 import GlobalErrorBoundary from "../../CommonComponents/ErrorBoundary/GlobalErrorHandler";
+import { fetchApiData } from "../../../actions/FetchApiDataActions";
+import {
+  FlexBoxContainer,
+  FilterColumnSection,
+  PostColumnSection,
+  AskUsColumnSection
+} from "./styles";
+import AddComment from "../AddComment/AddComment";
+import MultiTags from "../MultiTags/MultiTags";
+import ShareSocial from "../ShareSocial/ShareSocial";
 
 const { Content } = Layout;
 
 class SinglePost extends React.Component {
-  state = {
-    postData: {}
-  };
-
   componentDidMount() {
     this.props.fetchApiData();
   }
@@ -37,17 +39,16 @@ class SinglePost extends React.Component {
     } else {
       return <div></div>;
     }
-
     return (
       <GlobalErrorBoundary>
         <Content>
-          <Col span={6}>
-            {/* <MediaQuery query={"(min-width: 1224px)"}>
-            <FilterMobileView />
-          </MediaQuery> */}
-            <FilterWebView />
-          </Col>
-          <Col span={12}>
+          <FlexBoxContainer>
+            <MediaQuery query={"(min-width: 1061px)"}>
+              <FilterColumnSection>
+                <FilterWebView />
+              </FilterColumnSection>
+            </MediaQuery>
+            <PostColumnSection>
             <Row>
               <Col span={24}>
                 <MultiTags />
@@ -65,10 +66,13 @@ class SinglePost extends React.Component {
                 <AddComment />
               </Col>
             </Row>
-          </Col>
-          <Col span={6}>
-            <AskUs />
-          </Col>
+            </PostColumnSection>
+            <MediaQuery query={"(min-width: 1061px)"}>
+              <AskUsColumnSection>
+                <AskUs />
+              </AskUsColumnSection>
+            </MediaQuery>
+          </FlexBoxContainer>
         </Content>
       </GlobalErrorBoundary>
     );

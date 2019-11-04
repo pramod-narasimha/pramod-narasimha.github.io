@@ -1,13 +1,11 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Card, Divider, Col, Row } from "antd";
-import { postedTime } from "./Components/PostedTime/PostedTime";
-import userProfile from "../../../assets/images/user_profile.png";
+import { Card, Divider, Col, Row, Avatar, List } from "antd";
 import QuestionsAskedFor from "./Components/QuestionAskedFor/QuestionsAskedFor";
-import "./Post.less";
 import QuestionAndDescription from "./Components/QuestionAndDescription/QuestionAndDescription";
 import UserReactions from "./Components/UserReactions/UserReactions";
 import PostReactions from "./Components/PostReactions/PostReactions";
+import UserProfile from "./Components/UserProfile/UserProfile";
 
 class Post extends React.Component {
   render() {
@@ -21,33 +19,7 @@ class Post extends React.Component {
                   companies={this.props.postData.companyName}
                 />
               )}
-              <Row justify="start">
-                <Col span={12}>
-                  <Col span={12}>
-                    <img
-                      height="40"
-                      width="40"
-                      src={this.props.postData.imageUrl}
-                      alt=""
-                    />
-                  </Col>
-                  <Col span={12}>
-                    <Row>
-                      <Col span={24}>
-                        <span>{this.props.postData.userName}</span>
-                      </Col>
-                    </Row>
-                    <Row>
-                      <Col span={24}>
-                        <span>Intel</span>
-                      </Col>
-                    </Row>
-                  </Col>
-                </Col>
-                <Col span={12}>
-                  <div>{postedTime(this.props.postData.createdDate)}</div>
-                </Col>
-              </Row>
+            <UserProfile postData={this.props.postData}/>
               <QuestionAndDescription
                 title={this.props.postData.title}
                 metaDescription={this.props.postData.metaDescription}

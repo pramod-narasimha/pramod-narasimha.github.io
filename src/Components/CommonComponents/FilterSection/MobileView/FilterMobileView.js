@@ -6,6 +6,7 @@ import { Icon, Col, Drawer, Row } from "antd";
 import Popular from "../../../../assets/SVGs/Popular";
 import HomeIcon from "../../../../assets/SVGs/HomeIcon";
 import { closeSideDrawer } from "../../../../actions/FetchApiDataActions";
+import FilterWebView from "../WebView/FilterWebView";
 
 class FilterMobileView extends React.Component {
   render() {
@@ -17,7 +18,8 @@ class FilterMobileView extends React.Component {
           visible={this.props.sideDrawer === "open" ? true : false}
           onClose={()=>this.props.closeSideDrawer()}
         >
-          <Row>
+          <FilterWebView/>
+          {/* <Row>
             <Col span={24}>
               <span className="hush-feed">Hush Feed</span>
             </Col>
@@ -37,7 +39,7 @@ class FilterMobileView extends React.Component {
               </span>
               <span className="popular">Popular</span>
             </Col>
-          </Row>
+          </Row> */}
         </Drawer>
       </div>
     );

@@ -5,7 +5,15 @@ import HomeIcon from "../../../../assets/SVGs/HomeIcon";
 import Popular from "../../../../assets/SVGs/Popular";
 
 import ShareSocial from "../../../Scenes/ShareSocial/ShareSocial";
-import { SelectedRow, FilterWebViewDiv, HushFeed, Home, PopularText, FilterRow, GoToFeed } from "./styles";
+import {
+  SelectedRow,
+  FilterWebViewDiv,
+  HushFeed,
+  Home,
+  PopularText,
+  FilterRow,
+  GoToFeed
+} from "./styles";
 
 class FilterWebView extends React.Component {
   render() {
@@ -54,22 +62,23 @@ class FilterWebView extends React.Component {
           </div>
         )}
         {showBackButtion && (
-          <SelectedRow>
-            <Col span={24}>
-              <span className="pl1 pr1">
-                <Icon type="left" />
-              </span>
+          <div>
+            <SelectedRow>
+              <Col span={24}>
+                <span className="pl1 pr1">
+                  <Icon type="left" />
+                </span>
 
-              <GoToFeed className="go-to-feed">Go to Feed</GoToFeed>
-            </Col>
-          </SelectedRow>
+                <GoToFeed className="go-to-feed">Go to Feed</GoToFeed>
+              </Col>
+            </SelectedRow>
+            <FilterRow>
+              <Col span={24}>
+                <ShareSocial />
+              </Col>
+            </FilterRow>
+          </div>
         )}
-        {/*         
-        <Row>
-          <Col span={24}>
-            <ShareSocial/>
-          </Col>
-        </Row> */}
       </FilterWebViewDiv>
     );
   }

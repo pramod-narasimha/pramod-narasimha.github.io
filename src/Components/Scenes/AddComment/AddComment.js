@@ -3,7 +3,18 @@ import { Comment, Avatar, Form, Button, List, Input, Icon, Switch } from "antd";
 import moment from "moment";
 import ImageUpload from "./Components/ImageUpload/ImageUpload";
 import FileUpload from "./Components/FileUpload/FileUpload";
-
+import {
+  CommentFormItem,
+  PostComment,
+  ProfileFormItem,
+  SubmitFormItem,
+  PostAnonymouslyText,
+  CompanyName,
+  ProfileName,
+  SubmitButton
+} from "./styles";
+import userProfile from "../../../assets/images/user_profile.png";
+import VerifiedIcon from "../../../assets/SVGs/VerifiedIcon";
 const { TextArea } = Input;
 
 const CommentList = ({ comments }) => (
@@ -17,35 +28,46 @@ const CommentList = ({ comments }) => (
 
 const Editor = ({ onChange, onSubmit, submitting, value }) => (
   <div>
-    <Form.Item>
-      <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
-      <span>Arun A</span>&middot;<span>Accenture</span>{" "}
-      <span style={{ float: "right" }}>
-        <Switch />
-      </span>
-      <span style={{ float: "right" }}>Post Anonymoustly</span>
-    </Form.Item>
-    <Form.Item>
-      <TextArea rows={4} onChange={onChange} value={value} />
-    </Form.Item>
-    <Form.Item style={{ border: "1px solid" }}>
+    <ProfileFormItem className="pb1">
+      <Avatar src={userProfile} />
+      <ProfileName className="pl1 pr1">Arun A</ProfileName>
+      <CompanyName className="pr1">&middot; Accenture</CompanyName>
       <span>
-        <Button
+        <Icon component={VerifiedIcon} />
+      </span>
+      <span className="pr1 right">
+        <Switch size="small" />
+      </span>
+      <PostAnonymouslyText className="pr1 right">
+        Post Anonymoustly
+      </PostAnonymouslyText>
+    </ProfileFormItem>
+    <CommentFormItem>
+      <TextArea
+        placeholder="Post Your Answer"
+        rows={4}
+        onChange={onChange}
+        value={value}
+      />
+    </CommentFormItem>
+    <SubmitFormItem>
+      <span className="pl1">
+        <SubmitButton
           htmlType="submit"
           loading={submitting}
           onClick={onSubmit}
           type="primary"
         >
           Submit
-        </Button>
+        </SubmitButton>
       </span>
-      <span style={{ float: "right" }}>
-        <ImageUpload />
-      </span>
-      <span style={{ float: "right" }}>
+      <span className="pr2 right">
         <FileUpload />
       </span>
-    </Form.Item>
+      <span className="pr2 right">
+        <ImageUpload />
+      </span>
+    </SubmitFormItem>
   </div>
 );
 
@@ -71,9 +93,16 @@ class AddComment extends React.Component {
         value: "",
         comments: [
           {
-            author: "Han Solo",
-            avatar:
-              "https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png",
+            author: (
+              <span>
+                <ProfileName className="pr1">Arun A</ProfileName>
+                <CompanyName className="pr1">&middot; Accenture</CompanyName>
+                <span>
+                  <Icon component={VerifiedIcon} />
+                </span>
+              </span>
+            ),
+            avatar: userProfile,
             content: <p>{this.state.value}</p>,
             datetime: moment().fromNow()
           },
@@ -95,7 +124,8 @@ class AddComment extends React.Component {
     return (
       <div>
         {comments.length > 0 && <CommentList comments={comments} />}
-        <Comment
+        <PostComment
+          className="pr1 pl1"
           content={
             <Editor
               onChange={this.handleChange}
