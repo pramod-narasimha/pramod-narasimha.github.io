@@ -3,9 +3,7 @@ import ReactDOM from 'react-dom';
 import { Provider } from "react-redux";
 import { HashRouter } from "react-router-dom";
 
-import App from './Components/App';
 import * as serviceWorker from './serviceWorker';
-import HeaderBar from './Components/CommonComponents/HeaderBar/HeaderBar';
 
 import "antd/dist/antd.less";
 import Routes from './Routes';

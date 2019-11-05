@@ -1,4 +1,4 @@
-import { Input, Layout, Avatar } from "antd";
+import { Avatar } from "antd";
 import styled from "styled-components";
 
 export const ProfilePicture = styled(Avatar)`

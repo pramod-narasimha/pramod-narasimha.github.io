@@ -6,7 +6,6 @@ import WebViewHeaderBar from "./WebViewHeaderBar/WebViewHeaderBar";
 import MobileViewHeaderBar from "./MobileViewHeaderBar/MobileViewHeaderBar";
 import FilterMobileView from "../FilterSection/MobileView/FilterMobileView";
 
-const { Header, Footer, Sider, Content } = Layout;
 
 class HeaderBar extends React.Component {
   render() {

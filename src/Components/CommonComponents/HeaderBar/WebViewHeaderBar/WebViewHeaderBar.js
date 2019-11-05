@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom";
 
 import userProfile from "../../../../assets/images/user_profile.png";
 import {
@@ -13,12 +14,21 @@ import { Avatar, Icon } from "antd";
 import HushLogo from "../../../../assets/SVGs/HushLogo";
 
 class WebViewHeaderBar extends React.Component {
+  onLogoClick = event => {
+    event.stopPropagation();
+    this.props.location.pathname !== "/posts" && this.props.location.pathname !== "/" &&
+      this.props.history.push("/posts");
+  };
   render() {
     return (
       <WebViewHeaderWrapper>
         <FlexBoxContainer>
           <CompanyImageDiv>
-            <Icon component={HushLogo} />
+            <Icon
+              className="pointer"
+              component={HushLogo}
+              onClick={event => this.onLogoClick(event)}
+            />
           </CompanyImageDiv>
           <SearchBarWrapper>
             <div className="inline-block">
@@ -38,4 +48,4 @@ class WebViewHeaderBar extends React.Component {
   }
 }
 
-export default WebViewHeaderBar;
+export default withRouter(WebViewHeaderBar);

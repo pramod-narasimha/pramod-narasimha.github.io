@@ -2,9 +2,7 @@ import React from "react";
 
 import "./FilterMobileView.less";
 import { connect } from "react-redux";
-import { Icon, Col, Drawer, Row } from "antd";
-import Popular from "../../../../assets/SVGs/Popular";
-import HomeIcon from "../../../../assets/SVGs/HomeIcon";
+import { Drawer } from "antd";
 import { closeSideDrawer } from "../../../../actions/FetchApiDataActions";
 import FilterWebView from "../WebView/FilterWebView";
 

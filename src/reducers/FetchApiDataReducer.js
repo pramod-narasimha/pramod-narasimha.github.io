@@ -23,6 +23,8 @@ const FetchApiDataReducer = function(state = defaultState, action) {
       return updateState({ postsList: payload });
     case "SET_DRAWER":
       return updateState({ sideDrawer: payload });
+    case "RESET_DATA":
+      return resetState();
     default:
       return state;
   }

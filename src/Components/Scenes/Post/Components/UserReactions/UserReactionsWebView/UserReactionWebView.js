@@ -1,14 +1,14 @@
 import React from "react";
 import { Col, Row, Icon, Tooltip } from "antd";
-
-import './styles.less';
+import { withRouter } from "react-router-dom";
+import "../styles.less";
 import AnswerIcon from "../../../../../../assets/SVGs/AnswerIcon";
 import FacebookGrey from "../../../../../../assets/SVGs/FacebookGrey";
 import TwitterIcon from "../../../../../../assets/SVGs/TwitterIcon";
 import ShareIcon from "../../../../../../assets/SVGs/ShareIcon";
 import MoreIcon from "../../../../../../assets/SVGs/MoreIcon";
 import Helpfull from "../../../../../../assets/SVGs/Helpfull";
-import { AnswerText, HelpfullText, UserReactionTooltip } from "../styles";
+import { AnswerText, HelpfullText, MoreSymbolIcon, HelpfullTextOuterSpan } from "../styles";
 import LikeReaction from "../../../../../../assets/SVGs/LikeReaction";
 import HeartReaction from "../../../../../../assets/SVGs/HeartReaction";
 import ClapReaction from "../../../../../../assets/SVGs/ClapReaction";
@@ -16,47 +16,82 @@ import SuperbIcon from "../../../../../../assets/SVGs/SuperbIcon";
 import DislikeReaction from "../../../../../../assets/SVGs/DislikeReaction";
 
 class UserReactionWebView extends React.Component {
+  state = {
+    liked: false
+  };
+
+  likePost = event => {
+    event.stopPropagation();
+    this.setState({ liked: true });
+  };
+
+  onClickOfAnswerIcon = (event, url) => {
+    event.stopPropagation();
+    (this.props.location.pathname === "/posts" ||
+      this.props.location.pathname === "/") &&
+      this.props.history.push("/post/" + url);
+  };
+
   emojis = () => {
     return (
       <div>
         <span className="pr1">
-          <Icon component={LikeReaction} />
+          <Icon
+            component={LikeReaction}
+            onClick={event => this.likePost(event)}
+          />
         </span>
         <span className="pr1">
-          <Icon component={HeartReaction} />
+          <Icon
+            component={HeartReaction}
+            onClick={event => this.likePost(event)}
+          />
         </span>
         <span className="pr1">
-          <Icon component={ClapReaction} />
+          <Icon
+            component={ClapReaction}
+            onClick={event => this.likePost(event)}
+          />
         </span>
         <span className="pr1">
-          <Icon component={SuperbIcon} />
+          <Icon
+            component={SuperbIcon}
+            onClick={event => this.likePost(event)}
+          />
         </span>
         <span className="pr1">
-          <Icon component={DislikeReaction} />
+          <Icon
+            component={DislikeReaction}
+            onClick={event => this.likePost(event)}
+          />
         </span>
       </div>
     );
   };
   render() {
     return (
-      <Row>
+      <Row className="mb1">
         <Col span={4}>
-          <UserReactionTooltip id="tooltip"
-          className="my-tooltip"
+          <Tooltip
+            id="tooltip"
+            className="my-tooltip"
             style={{ color: "#ffff" }}
             placement="top"
             title={this.emojis()}
           >
-            <span>
+            <HelpfullTextOuterSpan isLiked={this.state.liked} className="pointer">
               <span>
                 <Icon component={Helpfull} />
               </span>
               <HelpfullText className="pl1">Helpfull</HelpfullText>
-            </span>{" "}
-          </UserReactionTooltip>
+            </HelpfullTextOuterSpan>
+          </Tooltip>
         </Col>
         <Col span={4}>
-          <span>
+          <span
+            className="pointer"
+            onClick={event => this.onClickOfAnswerIcon(event, this.props.url)}
+          >
             <span>
               <Icon component={AnswerIcon} />
             </span>
@@ -64,17 +99,17 @@ class UserReactionWebView extends React.Component {
           </span>
         </Col>
         <Col span={8} offset={8}>
-          <Col span={6}>
+          <Col className="pointer" span={6}>
             <Icon component={FacebookGrey} />
           </Col>
-          <Col span={6}>
+          <Col className="pointer" span={6}>
             <Icon component={TwitterIcon} />
           </Col>
-          <Col span={6}>
+          <Col className="pointer" span={6}>
             <Icon component={ShareIcon} />
           </Col>
-          <Col span={6}>
-            <Icon component={MoreIcon} />
+          <Col className="pointer" span={6}>
+            <MoreSymbolIcon component={MoreIcon} />
           </Col>
         </Col>
       </Row>
@@ -82,4 +117,4 @@ class UserReactionWebView extends React.Component {
   }
 }
 
-export default UserReactionWebView;
+export default withRouter(UserReactionWebView);

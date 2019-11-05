@@ -18,6 +18,9 @@ import {
 const { Content } = Layout;
 
 class MultiplePosts extends React.Component {
+  state = {
+    dummy: [1, 2, 3, 4, 5]
+  };
   componentDidMount() {
     this.props.fetchApiData();
   }
@@ -25,7 +28,7 @@ class MultiplePosts extends React.Component {
     return (
       <GlobalErrorBoundary>
         <Content>
-          <FlexBoxContainer>
+          <FlexBoxContainer className="mt1">
             <MediaQuery query={"(min-width: 1061px)"}>
               <FilterColumnSection>
                 <FilterWebView />
@@ -35,19 +38,20 @@ class MultiplePosts extends React.Component {
               {!this.props.isLoading &&
                 this.props.postsList.length > 0 &&
                 this.props.postsList.map(post => (
-                  <Row key={post.id}>
+                  <Row key={post.id} className="mb1">
                     <Col span={24}>
                       <Post postData={post} />
                     </Col>
                   </Row>
                 ))}
-              {this.props.isLoading && (
-                <Row>
-                  <Col span={24}>
-                    <Post />
-                  </Col>
-                </Row>
-              )}
+              {this.props.isLoading &&
+                this.state.dummy.map(dummyKey => (
+                  <Row key={dummyKey} className="mb1">
+                    <Col span={24}>
+                      <Post />
+                    </Col>
+                  </Row>
+                ))}
             </PostColumnSection>
             <MediaQuery query={"(min-width: 1061px)"}>
               <AskUsColumnSection>

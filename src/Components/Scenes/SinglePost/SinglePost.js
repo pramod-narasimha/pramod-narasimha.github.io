@@ -16,7 +16,6 @@ import {
 } from "./styles";
 import AddComment from "../AddComment/AddComment";
 import MultiTags from "../MultiTags/MultiTags";
-import ShareSocial from "../ShareSocial/ShareSocial";
 
 const { Content } = Layout;
 
@@ -33,7 +32,7 @@ class SinglePost extends React.Component {
       var singlePostData = this.props.postsList.filter(
         post => post.url === postURL
       );
-      if (singlePostData.length == 0) {
+      if (singlePostData.length === 0) {
         this.props.history.push("/posts");
       }
     } else {
@@ -42,30 +41,32 @@ class SinglePost extends React.Component {
     return (
       <GlobalErrorBoundary>
         <Content>
-          <FlexBoxContainer>
+          <FlexBoxContainer className="mt1">
             <MediaQuery query={"(min-width: 1061px)"}>
               <FilterColumnSection>
                 <FilterWebView />
               </FilterColumnSection>
             </MediaQuery>
             <PostColumnSection>
-            <Row>
-              <Col span={24}>
-                <MultiTags />
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                {singlePostData && singlePostData.length && (
-                  <Post postData={singlePostData[0]} />
-                )}
-              </Col>
-            </Row>
-            <Row>
-              <Col span={24}>
-                <AddComment />
-              </Col>
-            </Row>
+              <Row>
+                <Col span={24}>
+                  {singlePostData && singlePostData.length && (
+                    <MultiTags tags={singlePostData[0].tags} />
+                  )}
+                </Col>
+              </Row>
+              <Row className="mb1">
+                <Col span={24}>
+                  {singlePostData && singlePostData.length && (
+                    <Post postData={singlePostData[0]} />
+                  )}
+                </Col>
+              </Row>
+              <Row>
+                <Col span={24}>
+                  <AddComment />
+                </Col>
+              </Row>
             </PostColumnSection>
             <MediaQuery query={"(min-width: 1061px)"}>
               <AskUsColumnSection>

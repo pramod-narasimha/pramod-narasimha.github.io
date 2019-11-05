@@ -1,6 +1,8 @@
 import axios from "axios";
-const devApi = "http://localhost:3000/apiResponse.json";
-const prodApi = "https://pramod-narasimha.github.io/apiResponse.json"
+const api = {
+  devApi : "http://localhost:3000/apiResponse.json",
+  prodApi : "https://pramod-narasimha.github.io/apiResponse.json"
+};
 
 export function setApiData(data) {
   return {
@@ -25,7 +27,7 @@ export function setSideDrawer(data){
 }
 export const fetchApiData = () => dispatch => {
   dispatch(setLoading(true));
-  axios.get(devApi).then(response => {
+  axios.get(api.devApi).then(response => {
     dispatch(setApiData(response.data.aData));
     dispatch(setLoading(false));
   });

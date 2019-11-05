@@ -1,19 +1,19 @@
 import React from "react";
 import { Icon } from "antd";
 import NeedHelp from "../../../assets/SVGs/NeedHelp";
+import { AskUsOuterbox, AskUsInnerBox, AskQuestionText } from "./styles";
 
-import './AskUs.less'
 class AskUs extends React.Component {
   render() {
     return (
-      <div className="ask-us-outerBox">
-        <div className="ask-us-innerBox">
+      <AskUsOuterbox>
+        <AskUsInnerBox className="pointer">
           <span className="pr1">
             <Icon component={NeedHelp} />
           </span>
-          <span className="ask-new-question-text">Ask new question</span>
-        </div>
-      </div>
+          <AskQuestionText>Ask new question</AskQuestionText>
+        </AskUsInnerBox>
+      </AskUsOuterbox>
     );
   }
 }

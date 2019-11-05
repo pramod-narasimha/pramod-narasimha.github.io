@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Tooltip } from "antd";
+import { Icon } from "antd";
 
 export const HelpfullText = styled.span`
   color: #23a263;
@@ -9,6 +9,10 @@ export const HelpfullText = styled.span`
   line-height: 15px;
 `;
 
+export const HelpfullTextOuterSpan = styled.span`
+  background: ${props =>
+    props.isLiked? "#EBFFF5" : "transparent"};
+`
 export const AnswerText = styled.span`
   color: #006aff;
   font-size: 12px;
@@ -17,17 +21,9 @@ export const AnswerText = styled.span`
   line-height: 15px;
 `;
 
-export const UserReactionTooltip = styled(Tooltip)`
+export const MoreSymbolIcon = styled(Icon)`
 &&&{
-  >.ant-tooltip-inner {
-    color: yellow;
-    background-color: green;
-  }
-  
-  >.ant-tooltip-placement-bottom .ant-tooltip-arrow, .ant-tooltip-placement-bottomLeft .ant-tooltip-arrow, .ant-tooltip-placement-bottomRight .ant-tooltip-arrow {
-    border-bottom-color: green;
-  }
+  position: relative;
+  top: -4px;
 }
-
-
 `;

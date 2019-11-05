@@ -1,36 +1,68 @@
-import React from 'react'
-import { Row, Col, Tag, Icon } from 'antd';
-import LikeCount from '../../../../../assets/SVGs/LikeCount';
-import HeartCount from '../../../../../assets/SVGs/HeartCount';
-import ClapCount from '../../../../../assets/SVGs/ClapCount';
+import React from "react";
+import { Icon } from "antd";
+import LikeCount from "../../../../../assets/SVGs/LikeCount";
+import HeartCount from "../../../../../assets/SVGs/HeartCount";
+import ClapCount from "../../../../../assets/SVGs/ClapCount";
+import {
+  Tags,
+  LikeCountText,
+  HeartCountText,
+  ClapCountText,
+  CommentCountText,
+  CountFont,
+  FlexContainer,
+  FlexContainerSubDiv
+} from "./styles";
 
 class PostReactions extends React.Component {
-
-    render(){
-        return (<Row>
-            <Col span={8}>
-              <Tag color="blue">#Product/UX</Tag>
-            </Col>
-            <Col span={8} offset={8}>
-              <Col span={6}>
-                <Icon component={LikeCount} />
-              </Col>
-              <Col span={6}>
-                <Icon component={HeartCount} />
-              </Col>
-              <Col span={6}>
-                <Icon component={ClapCount} />
-              </Col>
-              <Col span={6}>
-                <span>
-                  <span>2</span>
-                  <span>answers</span>
-                </span>
-              </Col>
-            </Col>
-          </Row>
-);
-    }
+  render() {
+    return (
+      <div className="mt1">
+        <FlexContainer>
+          
+          {this.props.tags.map(tag => (
+            <FlexContainerSubDiv className="pr1" key={tag}>
+            <Tags key={tag}>
+            #{tag}
+          </Tags></FlexContainerSubDiv>
+            
+          ))}
+         
+        </FlexContainer>
+        {/* <div className="inline-block">
+          
+        </div> */}
+        <div className="right inline-block">
+          {this.props.likeCount && (
+            <span>
+              <Icon component={LikeCount} />
+              <LikeCountText>{this.props.likeCount}</LikeCountText>
+            </span>
+          )}
+          {this.props.aViewContent && (
+            <span className="pl1">
+              <Icon component={HeartCount} />
+              <HeartCountText>{this.props.aViewContent}</HeartCountText>
+            </span>
+          )}
+          {this.props.viewCount && (
+            <span className="pl1">
+              <Icon component={ClapCount} />
+              <ClapCountText>{this.props.viewCount}</ClapCountText>
+            </span>
+          )}
+          <span className="pl1 bold">
+            <CountFont>&middot;</CountFont>
+          </span>
+          {this.props.commentCount && (
+            <span className="pl1">
+              <CommentCountText>{this.props.commentCount} answers</CommentCountText>
+            </span>
+          )}
+        </div>
+      </div>
+    );
+  }
 }
 
 export default PostReactions;

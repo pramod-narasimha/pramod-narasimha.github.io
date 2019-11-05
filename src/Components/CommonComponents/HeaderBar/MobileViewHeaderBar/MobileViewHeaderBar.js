@@ -1,22 +1,27 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import { withRouter } from "react-router-dom";
 import userProfile from "../../../../assets/images/user_profile.png";
-import {
-  MobileViewHeaderWrapper,
-  MobileViewHeaderRow
-} from "./styles";
+import { MobileViewHeaderWrapper, MobileViewHeaderRow } from "./styles";
 import { Avatar, Icon, Input, Col, Row } from "antd";
 import HushLogo from "../../../../assets/SVGs/HushLogo";
 import HamburgerIcon from "../../../../assets/SVGs/HamburgerIcon";
 import { openSideDrawer } from "../../../../actions/FetchApiDataActions";
 
 class MobileViewHeaderBar extends React.Component {
-  onIconClick = (event) => {
+  onIconClick = event => {
     console.log(event);
     event.stopPropagation();
     this.props.openSideDrawer();
-  }
+  };
+
+  onLogoClick = event => {
+    event.stopPropagation();
+    this.props.location.pathname !== "/posts" &&
+      this.props.location.pathname !== "/" &&
+      this.props.history.push("/posts");
+  };
+
   render() {
     return (
       <MobileViewHeaderWrapper>
@@ -24,7 +29,11 @@ class MobileViewHeaderBar extends React.Component {
           <Col span={24} className="pt2 pb2">
             <div>
               <span className="pl2">
-                <Icon component={HushLogo} />
+                <Icon
+                  className="pointer"
+                  component={HushLogo}
+                  onClick={event => this.onLogoClick(event)}
+                />
               </span>
               <span className="right pr2">
                 <Avatar src={userProfile} />
@@ -38,19 +47,28 @@ class MobileViewHeaderBar extends React.Component {
               <Input
                 readOnly
                 defaultValue="  Home"
-                prefix={<Icon component={HamburgerIcon} onClick={this.onIconClick} />}
+                prefix={
+                  <Icon component={HamburgerIcon} onClick={this.onIconClick} />
+                }
                 // placeholder="Search Hush"
 
                 // prefix={<Icon type="search" />}
               />
             </div>
           </Col>
-        </Row>     
+        </Row>
       </MobileViewHeaderWrapper>
     );
   }
 }
 
-const mapDispatchToProps = dispatch => ({openSideDrawer: () => dispatch(openSideDrawer())});
+const mapDispatchToProps = dispatch => ({
+  openSideDrawer: () => dispatch(openSideDrawer())
+});
 
-export default connect(null,mapDispatchToProps)(MobileViewHeaderBar);
+export default withRouter(
+  connect(
+    null,
+    mapDispatchToProps
+  )(MobileViewHeaderBar)
+);

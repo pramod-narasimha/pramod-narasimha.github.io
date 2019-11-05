@@ -1,7 +1,8 @@
 import React from "react";
-import { List, Avatar } from "antd";
+import { List, Icon } from "antd";
 import { postedTime } from "../PostedTime/PostedTime";
 import { ProfilePicture, UserName, UserCompany } from "./styles";
+import VerifiedIcon from "../../../../../assets/SVGs/VerifiedIcon";
 
 class UserProfile extends React.Component {
   render() {
@@ -9,16 +10,25 @@ class UserProfile extends React.Component {
       <List
         dataSource={[
           {
-            name: "Lily"
+            name: this.props.postData.userName
           }
         ]}
         renderItem={item => (
           <List.Item extra={postedTime(this.props.postData.createdDate)}>
             <List.Item.Meta
-              avatar={
-                <ProfilePicture src="https://gw.alipayobjects.com/zos/rmsportal/BiazfanxmamNRoxxVxka.png" />
+              avatar={<ProfilePicture src={this.props.postData.userImage} />}
+              title={
+                <span>
+                  <span className="pr1">
+                    <UserName>{this.props.postData.userName}</UserName>
+                  </span>
+                  {this.props.postData.userVerified && (
+                    <span>
+                      <Icon component={VerifiedIcon} />
+                    </span>
+                  )}
+                </span>
               }
-              title={<UserName>{this.props.postData.userName}</UserName>}
               description={<UserCompany>Intel</UserCompany>}
             />
           </List.Item>

@@ -1,4 +1,4 @@
-import { Input, Layout, Row } from "antd";
+import { Layout, Row } from "antd";
 import styled from "styled-components";
 
 const { Header } = Layout;
