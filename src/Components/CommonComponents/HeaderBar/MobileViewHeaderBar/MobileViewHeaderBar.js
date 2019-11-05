@@ -1,9 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
+import { Avatar, Icon, Input, Col, Row } from "antd";
+
 import userProfile from "../../../../assets/images/user_profile.png";
 import { MobileViewHeaderWrapper, MobileViewHeaderRow } from "./styles";
-import { Avatar, Icon, Input, Col, Row } from "antd";
 import HushLogo from "../../../../assets/SVGs/HushLogo";
 import HamburgerIcon from "../../../../assets/SVGs/HamburgerIcon";
 import { openSideDrawer } from "../../../../actions/FetchApiDataActions";

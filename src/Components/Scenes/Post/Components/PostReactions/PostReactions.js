@@ -1,5 +1,6 @@
 import React from "react";
 import { Icon } from "antd";
+
 import LikeCount from "../../../../../assets/SVGs/LikeCount";
 import HeartCount from "../../../../../assets/SVGs/HeartCount";
 import ClapCount from "../../../../../assets/SVGs/ClapCount";
@@ -19,19 +20,12 @@ class PostReactions extends React.Component {
     return (
       <div className="mt1">
         <FlexContainer>
-          
           {this.props.tags.map(tag => (
             <FlexContainerSubDiv className="pr1" key={tag}>
-            <Tags key={tag}>
-            #{tag}
-          </Tags></FlexContainerSubDiv>
-            
+              <Tags key={tag}>#{tag}</Tags>
+            </FlexContainerSubDiv>
           ))}
-         
         </FlexContainer>
-        {/* <div className="inline-block">
-          
-        </div> */}
         <div className="right inline-block">
           {this.props.likeCount && (
             <span>
@@ -56,7 +50,9 @@ class PostReactions extends React.Component {
           </span>
           {this.props.commentCount && (
             <span className="pl1">
-              <CommentCountText>{this.props.commentCount} answers</CommentCountText>
+              <CommentCountText>
+                {this.props.commentCount} answers
+              </CommentCountText>
             </span>
           )}
         </div>

@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const FlexContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
+  @media (max-width: 564px) {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 `;
 
 export const FlexContainerSubDiv = styled.div`

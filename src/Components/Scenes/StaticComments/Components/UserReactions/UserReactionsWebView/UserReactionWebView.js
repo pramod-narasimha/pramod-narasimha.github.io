@@ -1,6 +1,5 @@
 import React from "react";
 import { Col, Row, Icon, Tooltip } from "antd";
-import { withRouter } from "react-router-dom";
 
 import "../styles.less";
 import AnswerIcon from "../../../../../../assets/SVGs/AnswerIcon";
@@ -24,13 +23,6 @@ class UserReactionWebView extends React.Component {
   likePost = event => {
     event.stopPropagation();
     this.setState({ liked: true });
-  };
-
-  onClickOfAnswerIcon = (event, url) => {
-    event.stopPropagation();
-    (this.props.location.pathname === "/posts" ||
-      this.props.location.pathname === "/") &&
-      this.props.history.push("/post/" + url);
   };
 
   emojis = () => {
@@ -91,7 +83,6 @@ class UserReactionWebView extends React.Component {
         <Col span={4}>
           <span
             className="pointer"
-            onClick={event => this.onClickOfAnswerIcon(event, this.props.url)}
           >
             <span>
               <Icon component={AnswerIcon} />
@@ -118,4 +109,4 @@ class UserReactionWebView extends React.Component {
   }
 }
 
-export default withRouter(UserReactionWebView);
+export default UserReactionWebView;

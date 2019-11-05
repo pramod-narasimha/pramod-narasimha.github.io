@@ -1,5 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
+import { Avatar, Icon } from "antd";
 
 import userProfile from "../../../../assets/images/user_profile.png";
 import {
@@ -10,7 +11,6 @@ import {
   FlexBoxContainer,
   ProfileImageWrapper
 } from "./styles";
-import { Avatar, Icon } from "antd";
 import HushLogo from "../../../../assets/SVGs/HushLogo";
 
 class WebViewHeaderBar extends React.Component {

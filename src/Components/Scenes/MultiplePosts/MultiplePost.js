@@ -2,12 +2,13 @@ import React from "react";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 import MediaQuery from "react-responsive";
+import { fetchApiData } from "../../../actions/FetchApiDataActions";
 import { Layout, Col, Row } from "antd";
 import Post from "../Post/Post";
+
 import AskUs from "../../CommonComponents/AskUsSection/AskUs";
 import FilterWebView from "../../CommonComponents/FilterSection/WebView/FilterWebView";
 import GlobalErrorBoundary from "../../CommonComponents/ErrorBoundary/GlobalErrorHandler";
-import { fetchApiData } from "../../../actions/FetchApiDataActions";
 import {
   FlexBoxContainer,
   FilterColumnSection,

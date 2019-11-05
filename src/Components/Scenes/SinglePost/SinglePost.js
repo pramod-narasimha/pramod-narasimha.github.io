@@ -4,6 +4,7 @@ import { withRouter } from "react-router-dom";
 import MediaQuery from "react-responsive";
 import { Layout, Col, Row } from "antd";
 import Post from "../Post/Post";
+
 import AskUs from "../../CommonComponents/AskUsSection/AskUs";
 import FilterWebView from "../../CommonComponents/FilterSection/WebView/FilterWebView";
 import GlobalErrorBoundary from "../../CommonComponents/ErrorBoundary/GlobalErrorHandler";
@@ -16,10 +17,16 @@ import {
 } from "./styles";
 import AddComment from "../AddComment/AddComment";
 import MultiTags from "../MultiTags/MultiTags";
+import StaticComment from "../StaticComments/StaticComment";
 
 const { Content } = Layout;
 
 class SinglePost extends React.Component {
+
+  state = {
+    dummy: [1, 2, 3, 4, 5]
+  };
+  
   componentDidMount() {
     this.props.fetchApiData();
   }
@@ -67,6 +74,13 @@ class SinglePost extends React.Component {
                   <AddComment />
                 </Col>
               </Row>
+              {this.state.dummy.map(dummyKey => (
+                  <Row key={dummyKey} className="mb1">
+                    <Col span={24}>
+                      <StaticComment />
+                    </Col>
+                  </Row>
+                ))}
             </PostColumnSection>
             <MediaQuery query={"(min-width: 1061px)"}>
               <AskUsColumnSection>

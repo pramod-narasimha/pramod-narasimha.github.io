@@ -18,6 +18,7 @@ import ClapReaction from "../../../../../../assets/SVGs/ClapReaction";
 import SuperbIcon from "../../../../../../assets/SVGs/SuperbIcon";
 import DislikeReaction from "../../../../../../assets/SVGs/DislikeReaction";
 import "../styles.less";
+
 class UserReactionMobileView extends React.Component {
   state = {
     liked: false
@@ -76,6 +77,7 @@ class UserReactionMobileView extends React.Component {
       <div className="mb1">
         <div className="pl1" style={{ display: "inline-block" }}>
           <Tooltip
+            trigger="click"
             className="my-tooltip"
             style={{ color: "#ffff" }}
             placement="top"

@@ -1,22 +1,24 @@
 import React from "react";
-import { Col, Row, Icon, Tooltip } from "antd";
-import { withRouter } from "react-router-dom";
+import { Icon, Tooltip } from "antd";
 
-import "../styles.less";
 import AnswerIcon from "../../../../../../assets/SVGs/AnswerIcon";
 import FacebookGrey from "../../../../../../assets/SVGs/FacebookGrey";
-import TwitterIcon from "../../../../../../assets/SVGs/TwitterIcon";
-import ShareIcon from "../../../../../../assets/SVGs/ShareIcon";
 import MoreIcon from "../../../../../../assets/SVGs/MoreIcon";
 import Helpfull from "../../../../../../assets/SVGs/Helpfull";
-import { AnswerText, HelpfullText, MoreSymbolIcon, HelpfullTextOuterSpan } from "../styles";
+import {
+  AnswerText,
+  HelpfullText,
+  MoreSymbolIcon,
+  HelpfullTextOuterSpan
+} from "../styles";
 import LikeReaction from "../../../../../../assets/SVGs/LikeReaction";
 import HeartReaction from "../../../../../../assets/SVGs/HeartReaction";
 import ClapReaction from "../../../../../../assets/SVGs/ClapReaction";
 import SuperbIcon from "../../../../../../assets/SVGs/SuperbIcon";
 import DislikeReaction from "../../../../../../assets/SVGs/DislikeReaction";
+import "../styles.less";
 
-class UserReactionWebView extends React.Component {
+class UserReactionMobileView extends React.Component {
   state = {
     liked: false
   };
@@ -24,13 +26,6 @@ class UserReactionWebView extends React.Component {
   likePost = event => {
     event.stopPropagation();
     this.setState({ liked: true });
-  };
-
-  onClickOfAnswerIcon = (event, url) => {
-    event.stopPropagation();
-    (this.props.location.pathname === "/posts" ||
-      this.props.location.pathname === "/") &&
-      this.props.history.push("/post/" + url);
   };
 
   emojis = () => {
@@ -71,51 +66,45 @@ class UserReactionWebView extends React.Component {
   };
   render() {
     return (
-      <Row className="mb1">
-        <Col span={4}>
+      <div className="mb1">
+        <div className="pl1" style={{ display: "inline-block" }}>
           <Tooltip
-            id="tooltip"
+            trigger="click"
             className="my-tooltip"
             style={{ color: "#ffff" }}
             placement="top"
             title={this.emojis()}
           >
-            <HelpfullTextOuterSpan isLiked={this.state.liked} className="pointer">
+            <HelpfullTextOuterSpan
+              isLiked={this.state.liked}
+              className="pointer"
+            >
               <span>
                 <Icon component={Helpfull} />
               </span>
               <HelpfullText className="pl1">Helpfull</HelpfullText>
             </HelpfullTextOuterSpan>
           </Tooltip>
-        </Col>
-        <Col span={4}>
+        </div>
+        <div className="pl3 inline-block">
           <span
             className="pointer"
-            onClick={event => this.onClickOfAnswerIcon(event, this.props.url)}
           >
             <span>
               <Icon component={AnswerIcon} />
             </span>
             <AnswerText className="pl1">Answer</AnswerText>
           </span>
-        </Col>
-        <Col span={8} offset={8}>
-          <Col className="pointer" span={6}>
-            <Icon component={FacebookGrey} />
-          </Col>
-          <Col className="pointer" span={6}>
-            <Icon component={TwitterIcon} />
-          </Col>
-          <Col className="pointer" span={6}>
-            <Icon component={ShareIcon} />
-          </Col>
-          <Col className="pointer" span={6}>
-            <MoreSymbolIcon component={MoreIcon} />
-          </Col>
-        </Col>
-      </Row>
+        </div>
+        <div className="pr pointer inline-block right">
+          <MoreSymbolIcon component={MoreIcon} />
+        </div>
+        <div className="pr3 pointer inline-block right">
+          <Icon component={FacebookGrey} />
+        </div>
+      </div>
     );
   }
 }
 
-export default withRouter(UserReactionWebView);
+export default UserReactionMobileView;

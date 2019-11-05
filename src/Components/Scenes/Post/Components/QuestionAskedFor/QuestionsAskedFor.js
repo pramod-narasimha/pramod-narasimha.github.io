@@ -1,6 +1,6 @@
 import React from "react";
-
 import { Row, Col, Icon } from "antd";
+
 import CompanyIcon from "../../../../../assets/SVGs/CompanyIcon";
 import { QuestionsFor, CompanyName } from "./styles";
 

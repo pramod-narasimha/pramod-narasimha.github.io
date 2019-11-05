@@ -1,9 +1,9 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
 import { Icon, Col } from "antd";
+
 import HomeIcon from "../../../../assets/SVGs/HomeIcon";
 import Popular from "../../../../assets/SVGs/Popular";
-
 import ShareSocial from "../../../Scenes/ShareSocial/ShareSocial";
 import {
   SelectedRow,

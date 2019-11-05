@@ -15,7 +15,7 @@ export const HelpfullTextOuterSpan = styled.span`
   border-radius: 3px;
 `;
 export const AnswerText = styled.span`
-  color: #006aff;
+  color: #495057;
   font-size: 12px;
   font-weight: 500;
   letter-spacing: -0.2px;
