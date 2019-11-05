@@ -6,6 +6,7 @@
   "dependencies": {
     "@babel/core": "7.6.0",
     "@svgr/webpack": "4.3.2",
+    "@testing-library/jest-dom": "^4.2.3",
     "@typescript-eslint/eslint-plugin": "^2.2.0",
     "@typescript-eslint/parser": "^2.2.0",
     "antd": "^3.24.3",
@@ -93,6 +94,7 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^9.3.2",
     "babel-plugin-import": "^1.12.2",
     "gh-pages": "^2.1.1",
     "less": "^3.10.3",
