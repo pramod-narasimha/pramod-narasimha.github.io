@@ -87,7 +87,7 @@ class UserReactionWebView extends React.Component {
             <span>
               <Icon component={AnswerIcon} />
             </span>
-            <AnswerText className="pl1">Answer</AnswerText>
+            <AnswerText className="pl1">Comments</AnswerText>
           </span>
         </Col>
         <Col span={8} offset={8}>

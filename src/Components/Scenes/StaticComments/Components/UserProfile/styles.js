@@ -21,3 +21,10 @@ export const UserCompany = styled.span`
 	letter-spacing: -0.03px;
 }
 `;
+
+export const AskedOn = styled.span`
+  font-size: 12px;
+  letter-spacing: -0.12px;
+  line-height: 14px;
+  color: #8294a5;
+`;

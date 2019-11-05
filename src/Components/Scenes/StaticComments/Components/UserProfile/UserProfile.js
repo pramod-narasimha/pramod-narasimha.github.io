@@ -1,6 +1,6 @@
 import React from "react";
 import { List, Icon } from "antd";
-import { ProfilePicture, UserName, UserCompany } from "./styles";
+import { ProfilePicture, UserName, UserCompany, AskedOn } from "./styles";
 import VerifiedIcon from "../../../../../assets/SVGs/VerifiedIcon";
 import userProfile from "../../../../../assets/images/user_profile.png";
 
@@ -14,7 +14,7 @@ class UserProfile extends React.Component {
           }
         ]}
         renderItem={item => (
-          <List.Item extra={"Answered 13 hrs ago"}>
+          <List.Item extra={<AskedOn>{"Answered 13 hrs ago"}</AskedOn>}>
             <List.Item.Meta
               avatar={<ProfilePicture src={userProfile} />}
               title={
